@@ -18,6 +18,10 @@
       stroke: blue;
       fill-opacity: 0;
     }
+
+    pre {
+      display: inline-block;
+    }
   </style>
 </head>
 <body ng-app="app">
@@ -32,6 +36,7 @@
       <label>rotate <input type="number" ng-model="group.rotate"></label>
       <label>rx <input type="number" ng-model="group.rx"></label>
       <label>ry <input type="number" ng-model="group.ry"></label>
+      <pre>transform="{{makeTransform(group)}}"</pre>
     </fieldset>
     <fieldset>
       <legend>Big</legend>
@@ -42,6 +47,7 @@
       <label>ry <input type="number" ng-model="big.ry"></label>
       <label>width <input type="number" ng-model="big.width"></label>
       <label>height <input type="number" ng-model="big.height"></label>
+      <pre>transform="{{makeTransform(big)}}"</pre>
     </fieldset>
     <fieldset>
       <legend>Little</legend>
@@ -52,16 +58,17 @@
       <label>ry <input type="number" ng-model="little.ry"></label>
       <label>width <input type="number" ng-model="little.width"></label>
       <label>height <input type="number" ng-model="little.height"></label>
+      <pre>transform="{{makeTransform(little)}}"</pre>
     </fieldset>
 
     <button ng-click="reset()">Reset</button>
     <hr>
 
     <svg width="800" height="600">
-      <g transform="translate({{group.x}} {{group.y}}) rotate({{group.rotate}} {{group.rx}} {{group.ry}})">
-        <rect class="big" width="{{big.width}}" height="{{big.height}}" transform="translate({{big.x}} {{big.y}}) rotate({{big.rotate}} {{big.rx}} {{big.ry}})">
+      <g transform="{{makeTransform(group)}}">
+        <rect class="big" width="{{big.width}}" height="{{big.height}}" transform="{{makeTransform(big)}}">
         </rect>
-        <rect class="little" width="{{little.width}}" height="{{little.height}}" transform="translate({{little.x}} {{little.y}}) rotate({{little.rotate}} {{little.rx}} {{little.ry}})">
+        <rect class="little" width="{{little.width}}" height="{{little.height}}" transform="{{makeTransform(little)}}">
         </rect>
       </g>
     </svg>

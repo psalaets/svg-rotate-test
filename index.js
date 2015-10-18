@@ -28,7 +28,20 @@ angular.module('app', [])
     };
   }
 
-  $scope.reset = function() {
+  // assumes object has number props: rotate, rx, ry, x, y
+  $scope.makeTransform = function makeTransform(object) {
+    return makeTranslate(object.x, object.y) + ' ' + makeRotate(object.rotate, object.rx, object.ry);
+  };
+
+  function makeTranslate(x, y) {
+    return 'translate(' + x + ' ' + y + ')';
+  }
+
+  function makeRotate(rotate, rx, ry) {
+    return 'rotate(' + rotate + ' ' + rx + ' ' + ry + ')';
+  }
+
+  $scope.reset = function reset() {
     $scope.group = {
       x: 200,
       y: 180,
