@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+    svg {
+      outline: 1px black solid;
+    }
+
+    .big {
+      stroke: red;
+      fill-opacity: 0;
+    }
+
+    .little {
+      stroke: blue;
+      fill-opacity: 0;
+    }
+  </style>
+</head>
+<body ng-app="app">
+
+  <div ng-controller="MainCtrl">
+    <h1>protip: focus a field then use up/down arrow</h1>
+
+    <fieldset>
+      <legend>Group</legend>
+      <label>x <input type="number" ng-model="group.x"></label>
+      <label>y <input type="number" ng-model="group.y"></label>
+      <label>rotate <input type="number" ng-model="group.rotate"></label>
+      <label>rx <input type="number" ng-model="group.rx"></label>
+      <label>ry <input type="number" ng-model="group.ry"></label>
+    </fieldset>
+    <fieldset>
+      <legend>Big</legend>
+      <label>x <input type="number" ng-model="big.x"></label>
+      <label>y <input type="number" ng-model="big.y"></label>
+      <label>rotate <input type="number" ng-model="big.rotate"></label>
+      <label>rx <input type="number" ng-model="big.rx"></label>
+      <label>ry <input type="number" ng-model="big.ry"></label>
+      <label>width <input type="number" ng-model="big.width"></label>
+      <label>height <input type="number" ng-model="big.height"></label>
+    </fieldset>
+    <fieldset>
+      <legend>Little</legend>
+      <label>x <input type="number" ng-model="little.x"></label>
+      <label>y <input type="number" ng-model="little.y"></label>
+      <label>rotate <input type="number" ng-model="little.rotate"></label>
+      <label>rx <input type="number" ng-model="little.rx"></label>
+      <label>ry <input type="number" ng-model="little.ry"></label>
+      <label>width <input type="number" ng-model="little.width"></label>
+      <label>height <input type="number" ng-model="little.height"></label>
+    </fieldset>
+
+    <button ng-click="reset()">Reset</button>
+    <hr>
+
+    <svg width="800" height="600">
+      <g transform="translate({{group.x}} {{group.y}}) rotate({{group.rotate}} {{group.rx}} {{group.ry}})">
+        <rect class="big" width="{{big.width}}" height="{{big.height}}" transform="translate({{big.x}} {{big.y}}) rotate({{big.rotate}} {{big.rx}} {{big.ry}})">
+        </rect>
+        <rect class="little" width="{{little.width}}" height="{{little.height}}" transform="translate({{little.x}} {{little.y}}) rotate({{little.rotate}} {{little.rx}} {{little.ry}})">
+        </rect>
+      </g>
+    </svg>
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
