@@ -34,10 +34,17 @@ angular.module('app', [])
   };
 
   function makeTranslate(x, y) {
+    x = x || 0;
+    y = y || 0;
+
     return 'translate(' + x + ' ' + y + ')';
   }
 
   function makeRotate(rotate, rx, ry) {
+    rotate = rotate || 0;
+    rx = rx || 0;
+    ry = ry || 0;
+
     return 'rotate(' + rotate + ' ' + rx + ' ' + ry + ')';
   }
 
