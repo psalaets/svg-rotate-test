@@ -9,13 +9,26 @@
       outline: 1px black solid;
     }
 
+    .group {
+      stroke: black;
+      fill: black;
+    }
+
     .big {
       stroke: red;
+      fill: red;
+    }
+
+    rect.big {
       fill-opacity: 0;
     }
 
     .little {
       stroke: blue;
+      fill: blue;
+    }
+
+    rect.little {
       fill-opacity: 0;
     }
 
@@ -73,6 +86,10 @@
       </defs>
 
       <g ng-attr-transform="{{makeTransform(group)}}">
+        <circle class="little" ng-attr-cx="{{little.rx || 0}}" ng-attr-cy="{{little.ry || 0}}" r="3"/>
+        <circle class="big" ng-attr-cx="{{big.rx || 0}}" ng-attr-cy="{{big.ry || 0}}" r="3"/>
+        <circle class="group" ng-attr-cx="{{group.rx || 0}}" ng-attr-cy="{{group.ry || 0}}" r="3"/>
+
         <use xlink:href="#big" ng-attr-transform="{{makeTransform(big)}}"/>
         <use xlink:href="#little" ng-attr-transform="{{makeTransform(little)}}"/>
       </g>
