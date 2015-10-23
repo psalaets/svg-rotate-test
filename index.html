@@ -65,11 +65,16 @@
     <hr>
 
     <svg width="800" height="600">
+      <defs>
+        <rect id="big" class="big" ng-attr-width="{{big.width}}" ng-attr-height="{{big.height}}">
+        </rect>
+        <rect id="little" class="little" ng-attr-width="{{little.width}}" ng-attr-height="{{little.height}}">
+        </rect>
+      </defs>
+
       <g ng-attr-transform="{{makeTransform(group)}}">
-        <rect class="big" ng-attr-width="{{big.width}}" ng-attr-height="{{big.height}}" ng-attr-transform="{{makeTransform(big)}}">
-        </rect>
-        <rect class="little" ng-attr-width="{{little.width}}" ng-attr-height="{{little.height}}" ng-attr-transform="{{makeTransform(little)}}">
-        </rect>
+        <use xlink:href="#big" ng-attr-transform="{{makeTransform(big)}}"/>
+        <use xlink:href="#little" ng-attr-transform="{{makeTransform(little)}}"/>
       </g>
     </svg>
   </div>
