@@ -1,33 +1,5 @@
 angular.module('app', [])
-.controller('MainCtrl', function($scope, $location) {
-  var objectNames = ['group', 'big', 'little'];
-
-  // update scope objects when search changes
-  $scope.$on('$locationChangeSuccess', function() {
-    angular.forEach($location.search(), function(value, key) {
-      var object = key.split('.')[0];
-      var property = key.split('.')[1];
-
-      if (objectNames.indexOf(object) != -1) {
-        $scope[object][property] = Number(value);
-      }
-    });
-  });
-
-  // update search when scope objects change
-  objectNames.forEach(function(objectName) {
-    var deep = true;
-    $scope.$watch(objectName, updateSearchFromObject(objectName), deep);
-  });
-
-  function updateSearchFromObject(objectName) {
-    return function(newValue) {
-      angular.forEach(newValue, function(value, key) {
-        $location.search(objectName + '.' + key, value);
-      });
-    };
-  }
-
+.controller('MainCtrl', function($scope) {
   // assumes object has number props: rotate, rx, ry, x, y
   $scope.makeTransform = function makeTransform(object) {
     return makeTranslate(object.x, object.y) + ' ' + makeRotate(object.rotate, object.rx, object.ry);
