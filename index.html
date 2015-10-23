@@ -65,10 +65,10 @@
     <hr>
 
     <svg width="800" height="600">
-      <g transform="{{makeTransform(group)}}">
-        <rect class="big" width="{{big.width}}" height="{{big.height}}" transform="{{makeTransform(big)}}">
+      <g ng-attr-transform="{{makeTransform(group)}}">
+        <rect class="big" ng-attr-width="{{big.width}}" ng-attr-height="{{big.height}}" ng-attr-transform="{{makeTransform(big)}}">
         </rect>
-        <rect class="little" width="{{little.width}}" height="{{little.height}}" transform="{{makeTransform(little)}}">
+        <rect class="little" ng-attr-width="{{little.width}}" ng-attr-height="{{little.height}}" ng-attr-transform="{{makeTransform(little)}}">
         </rect>
       </g>
     </svg>
