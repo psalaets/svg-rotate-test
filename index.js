@@ -34,9 +34,7 @@ angular.module('app', [])
       y: 0,
       rotate: 0,
       rx: 0,
-      ry: 0,
-      width: 50,
-      height: 80
+      ry: 0
     };
 
     $scope.little = {
@@ -44,9 +42,7 @@ angular.module('app', [])
       y: 0,
       rotate: 0,
       rx: 294,
-      ry: 224,
-      width: 20,
-      height: 40
+      ry: 224
     };
   };
 
