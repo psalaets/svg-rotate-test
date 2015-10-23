@@ -50,11 +50,11 @@ angular.module('app', [])
 
   $scope.reset = function reset() {
     $scope.group = {
-      x: 200,
-      y: 180,
+      x: 100,
+      y: 80,
       rotate: 0,
-      rx: 0,
-      ry: 0,
+      rx: 294,
+      ry: 224,
     };
 
     $scope.big = {
@@ -71,8 +71,8 @@ angular.module('app', [])
       x: 0,
       y: 0,
       rotate: 0,
-      rx: 0,
-      ry: 0,
+      rx: 294,
+      ry: 224,
       width: 20,
       height: 40
     };
